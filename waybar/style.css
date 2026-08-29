@@ -1,0 +1,54 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Semi-transparent black bar background */
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ff8080; /* Light Red */
+}
+
+/* Modules styling: negative vertical margins force GTK to shrink the bar height */
+#workspaces,
+#window,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#network,
+#tray,
+#custom-sep {
+    padding: 0px 6px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    background-color: transparent;
+    color: #ff8080;
+}
+
+/* Workspace button alignment */
+#workspaces button {
+    padding: 0px 4px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    background-color: transparent;
+    color: #ff8080;
+    font-weight: bold;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    color: #ffb3b3;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: #ff4d4d;
+}

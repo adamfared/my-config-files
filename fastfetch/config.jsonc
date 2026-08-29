@@ -1,0 +1,41 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "source": "~/.config/fastfetch/finix-logo-256.png",
+    "color": {
+      "1": "#e84050",
+      "2": "#707070"
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    {
+      "type": "command",
+      "text": "~/.config/fastfetch/finit-version.sh",
+      "key": "Init System"
+    },
+    "uptime",
+    "packages",
+    "shell",
+    "display",
+    "wm",
+    "font",
+    "cursor",
+    "terminal",
+    "terminalfont",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "localip",
+    "locale",
+    "break",
+    "colors"
+  ]
+}
+
