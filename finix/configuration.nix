@@ -143,5 +143,6 @@
     tty-clock
     lavat
     github-cli
+    neovim
   ];
 }
