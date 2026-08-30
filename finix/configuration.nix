@@ -144,5 +144,9 @@
     lavat
     github-cli
     neovim
+    gcc
+    curl
+    gnutar
+    tree-sitter
   ];
 }
