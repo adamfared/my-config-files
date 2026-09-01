@@ -114,7 +114,7 @@
 
   # List packages installed in system profile. 
   environment.systemPackages = with pkgs; [
-    vim-full
+    neovim
     wget
     git
     nixos-rebuild-ng
@@ -134,19 +134,21 @@
     wl-clipboard
     cliphist
     waybar
-    nwg-look
-    vscodium.fhs
-    python3
+    nwg-look 
     mako
     cava
     cmatrix
     tty-clock
     lavat
     github-cli
-    neovim
     gcc
     curl
     gnutar
     tree-sitter
+    python3
+    pyright
+    ruff
+    fd
+    nodejs
   ];
 }
