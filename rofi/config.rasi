@@ -6,7 +6,7 @@ configuration {
 
 * {
     background-color: transparent;
-    text-color:       #FCE8E8FF;
+    text-color:       #E6F4FFFF;
     margin:           0px;
     padding:          0px;
     border:           0px;
@@ -15,9 +15,9 @@ configuration {
 
 window {
     background-color: #000000D8;
-    border:           4px;
-    border-color:     #FF5C72FF;
-    border-radius:    4px;
+    border:           3px;
+    border-color:     #7DCFFFFF;
+    border-radius:    0px;
     width:            380px;
     height:           380px;
     padding:          16px;
@@ -56,16 +56,16 @@ inputbar {
 
 prompt {
     padding:          0px 8px 0px 0px;
-    text-color:       #FF5C72FF;
+    text-color:       #7DCFFFFF;
 }
 
 entry {
-    placeholder:      "Search...";
+    placeholder:       "Search...";
     placeholder-color: #888888FF;
-    text-color:       #FCE8E8FF;
+    text-color:        #E6F4FFFF;
 }
 
-/* --- THE FIX: Explicitly target normal, alternate, and selected states --- */
+/* --- Target normal, alternate, and selected states --- */
 
 element,
 element normal.normal,
@@ -73,7 +73,7 @@ element alternate.normal,
 element normal.active,
 element alternate.active {
     background-color: transparent;
-    text-color:       #FCE8E8FF;
+    text-color:       #E6F4FFFF;
     padding:          8px 12px;
     border-radius:    4px;
 }
@@ -85,12 +85,12 @@ element-icon,
 element-icon normal.normal,
 element-icon alternate.normal {
     background-color: transparent;
-    text-color:       #FCE8E8FF;
+    text-color:       #E6F4FFFF;
 }
 
 element selected.normal,
 element selected.active {
-    background-color: #FF5C72FF;
+    background-color: #7DCFFFFF;
 }
 
 element-text selected.normal,
@@ -98,5 +98,5 @@ element-text selected.active,
 element-icon selected.normal,
 element-icon selected.active {
     background-color: transparent;
-    text-color:       #1A1416FF;
+    text-color:       #0A121AFF;
 }
