@@ -1,0 +1,116 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px; /* 1px larger font */
+    font-weight: bold;
+}
+
+/* Base pill module styling matched to wallpaper dark charcoal */
+* {
+    color: #e0e0e0;
+    background-color: #000000;
+    padding: 0px 10px;
+    margin: 5px 1px;
+    border-radius: 100px;
+}
+
+#bar {
+    background: none;
+    margin: 5px 10px;
+}
+#bar.sel {
+    background: none;
+}
+
+/* Workspace Tags */
+#tags {
+    padding: 0px 13px;
+    margin: 0px 2px;
+}
+
+#tags.active {
+    background-color: #7DCFFF; /* Light Blue highlight */
+    color: #121212;
+}
+#tags.occupied {
+    background-color: #40838A; /* Teal from wallpaper */
+    color: #ffffff;
+}
+#tags.urgent {
+    background-color: #f7768e; /* Soft red alert */
+    color: #121212;
+}
+#tags.empty {
+    background-color: #202020;
+    color: #666666;
+}
+
+/* Overview mode */
+#overview {
+    background-color: #7DCFFF;
+    color: #121212;
+}
+
+/* Layout symbol & Window title */
+#layout,
+#title {
+    background-color: #88A29A; /* Sage green from wallpaper */
+    color: #121212;
+}
+#layout {
+    min-width: 34px;
+    margin: 5px 5px;
+}
+
+/* Right-side System Modules */
+#clock {
+    background-color: #40838A; /* Darker Teal */
+    color: #ffffff;
+}
+#clock.date {
+    background-color: #88A29A; /* Sage Green */
+    color: #121212;
+}
+#cpu {
+    padding: 0px 15px;
+    background-color: #000000;
+    color: #7DCFFF;
+}
+#mem {
+    background-color: #2b2b2b;
+    color: #88A29A;
+}
+#wireplumber {
+    background-color: #40838A; /* PipeWire Audio */
+    color: #ffffff;
+}
+#network {
+    background-color: #88A29A;
+    color: #121212;
+}
+
+/* Custom Power Button (NixOS Logo) */
+#custom-power {
+    margin: 0px 5px;
+    background-color: #7DCFFF; /* Light Blue */
+    color: #121212;
+}
+
+#tray {
+    background-color: #202020;
+    padding: 0px 15px;
+}
+
+/* Menus */
+menu {
+    background-color: #202020;
+    border-color: #40838A;
+    border-radius: 10px;
+    font-size: 14px;
+}
+menuitem {
+    color: #e0e0e0;
+}
+menuitem:hover {
+    color: #121212;
+    background-color: #7DCFFF;
+}
