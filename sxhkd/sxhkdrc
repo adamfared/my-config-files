@@ -56,6 +56,14 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+# Full-screen screenshot (with mouse pointer)
+Print
+	scrot -p ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+
+# Window or area screenshot (with mouse pointer and window borders)
+shift + Print
+	scrot -p -b -s ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+
 #
 # state/flags
 #
@@ -101,7 +109,6 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
-
 #
 # preselect
 #
