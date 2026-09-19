@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -6,15 +6,15 @@
       ./hardware-configuration.nix
     ];
 
-  # Enable experimentsl features
+  # Enable experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the limine EFI boot loader.
   boot.loader.limine = {
     enable = true;
     maxGenerations = 3;
-    style.wallpapers = [ ./walls/wall2.png ];
-    style.wallpaperStyle = "centered";
+    style.wallpapers = [ ./walls/wall3.png ];
+    style.wallpaperStyle = "stretched";
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -25,22 +25,17 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Africa/Cairo";
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    windowManager.bspwm.enable = true;
-    displayManager.lightdm.enable = false;
-    displayManager.startx.enable = true;
-  };  
+  time.timeZone = "Africa/Cairo"; 
 
   # Enable sound.  
+  security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-    alsa.enable = true;
     jack.enable = true;
   };
 
@@ -50,7 +45,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.adam = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "video" "audio" "input" "storage" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "video" "audio" "input" "storage" "seat" ]; # Enable ‘sudo’ for the user.
      shell = pkgs.fish;
      packages = with pkgs; [
        tree
@@ -68,28 +63,96 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+
+  # Enable PAM authentication for swaylock
+  security.pam.services.swaylock = {};
+  
+  # Get MangoWM
+  programs.mango.enable = true;
+  
+  # not use sudo for poweroff & reboot
+  security.polkit.extraConfig = ''
+  polkit.addRule(function(action, subject) {
+    if ((action.id == "org.freedesktop.login1.power-off" ||
+         action.id == "org.freedesktop.login1.power-off-multiple-sessions" ||
+         action.id == "org.freedesktop.login1.reboot" ||
+         action.id == "org.freedesktop.login1.reboot-multiple-sessions") &&
+        subject.isInGroup("wheel")) {
+      return polkit.Result.YES;
+    }
+  });
+'';
+
+  # lemurs display manager
+  services.displayManager.lemurs = {
+    enable = true;
+    settings = {
+      background_color = "dark_gray";
+      text_color = "white";
+      username_field = {
+        style = {
+          title = "User:";
+          title_color = "white";
+          border_color = "white";
+        };
+      };
+      password_field = {
+        style = {
+          title = "Password:";
+          title_color = "white";
+          border_color = "white";
+        };
+      };
+      environment_switcher = {
+        style = {
+          title = "Session";
+          title_color = "white";
+          border_color = "white";
+          selected_color = "white";
+        };
+      };
+    };
+  };
+
+  # Enable Graphics Drivers
+  hardware.graphics = {
+     enable = true;
+     enable32Bit = true;
+  };
+
+  # Environment variables
+  environment.variables = {
+    XCURSOR_THEME = "Bibata-Modern-Ice";
+    XCURSOR_SIZE = "24";
+    HYPRCURSOR_THEME = "Bibata-Modern-Ice";
+    HYPRCURSOR_SIZE = "24";
+  };
+
+  # Enable XDG desktop portal
+  xdg.portal.enable = true;
+
+  # Disable nano editor
+  programs.nano.enable = false;
   
   # List packages installed in system profile.
    environment.systemPackages = with pkgs; [
      vim 
      wget
      kitty
-     sxhkd
      rofi
-     polybar
      fastfetch
      btop
      yazi
-     neovim
-     picom-pijulius
      librewolf
-     feh
+     swaybg
      lavat
      tty-clock
      cmatrix
      cava
-     xset
-     xclip
+     wl-clipboard
+     wlogout
+     swayidle
+     swaylock
      python3
      ruff
      pyright
@@ -100,7 +163,13 @@
      github-cli
      git
      curl
-     scrot
+     grim
+     slurp
+     inputs.mangobar.packages.${pkgs.stdenv.hostPlatform.system}.default
+     pamixer
+     brightnessctl
+     lxappearance
+     bibata-cursors
    ];
 
     system.stateVersion = "26.11"; 

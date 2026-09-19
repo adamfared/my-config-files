@@ -76,11 +76,11 @@
     color: #7DCFFF;
 }
 #mem {
-    background-color: #2b2b2b;
-    color: #88A29A;
+    background-color: #88A29A;
+    color: #000000;
 }
 #wireplumber {
-    background-color: #40838A; /* PipeWire Audio */
+    background-color: #000000; /* PipeWire Audio */
     color: #ffffff;
 }
 #network {

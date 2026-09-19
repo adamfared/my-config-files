@@ -47,7 +47,7 @@
         "format": " {load}%"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {load}%"
     },
     "backlight": {
         "format": "{icon} {percent}%",
@@ -69,10 +69,12 @@
         "icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "clock#date": {
+        "interval": 60,
         "format": " {:L%b%d·%A}"
     },
     "clock#time": {
-        "format": " {:L%I:%m%p}"
+        "interval": 1,
+        "format": " {:L%I:%M%p}"
     },
     "tray": {
         "icon-size": 25,
@@ -81,7 +83,7 @@
 
     "custom/power": {
         "format": "",
-        "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l ~/.config/mango/wlogout/layout -b 6 --protocol layer-shell",
+        "on-click": "wlogout -C ~/.config/wlogout/style.css -l ~/.config/wlogout/layout -b 4 --protocol layer-shell",
         "on-click-right": "sleep 0.1s && swaync-client -t -sw"
     }
 }

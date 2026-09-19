@@ -1,11 +1,8 @@
-if status is-login; and test -z "$DISPLAY"; and test (tty) = "/dev/tty1"
-    exec mango
-end
-
 if status is-interactive
-    fastfetch
+   fastfetch 
 end
 
 alias clock="tty-clock -c -C 1 -t"
-alias matrix="cmatrix -C red -b"
-alias lava="lavat -c red"
+alias matrix="cmatrix -C blue -b"
+alias lava="lavat -c blue"
+
