@@ -87,28 +87,33 @@
   services.displayManager.lemurs = {
     enable = true;
     settings = {
-      background_color = "dark_gray";
+      background_color = "gray";
       text_color = "white";
       username_field = {
         style = {
           title = "User:";
           title_color = "white";
-          border_color = "white";
-        };
+          title_color_focused = "white";
+          border_color = "gray";          
+          border_color_focused = "cyan";
+          content_color_focused = "white";
+        }; 
       };
       password_field = {
         style = {
           title = "Password:";
           title_color = "white";
-          border_color = "white";
+          title_color_focused = "white";
+          border_color = "gray";
+          border_color_focused = "cyan";
+          content_color_focused = "white";
         };
       };
       environment_switcher = {
         style = {
           title = "Session";
           title_color = "white";
-          border_color = "white";
-          selected_color = "white";
+          border_color = "cyan";
         };
       };
     };
